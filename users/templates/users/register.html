@@ -1,0 +1,30 @@
+{% extends 'users/base.html'%}
+
+{% block body %}
+    <div class='row'>
+        <div class='col-md-4 offset-md-4'>
+            <div class='card'>
+                <div class='card-header text-white bg-secondary'>
+                    SignUp
+                </div>
+                <div class='card-body'>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class='form-group'>
+                        {{ field.label }}
+                        {{ field }}
+                        </div>
+                        {% endfor %}
+                        <button class='btn-success' type="submit">SignUp</button>
+        
+                    </form>
+                </div>
+           
+        </div>
+        </div>
+    </div>
+   
+
+    </form>
+{% endblock %}

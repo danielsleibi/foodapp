@@ -1,0 +1,32 @@
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block body %}
+    <div class="row"> 
+    {% for item in item_list %}
+    <div class="col-md-4 offset-md-2"> 
+        <img class="card" src="{{ item.item_image }}" height="150px" width="250px"/>
+    </div>
+    <div class="col-md-2"> 
+        <h3>{{ item.item_name }}</h3>
+        <h4>${{ item.item_price }}</h4>
+        <h6>{{ item.user }}</h6>
+    </div>
+    <div class="col-md-1"> 
+            <a href="{% url 'food:details' item.id %}" class="btn btn-success">DETAILS</a>
+    </div>
+    {% endfor %}
+    </div> 
+    {% endblock %}
+</body>
+
+</html>
